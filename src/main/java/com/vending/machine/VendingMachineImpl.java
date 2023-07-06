@@ -20,6 +20,7 @@ public class VendingMachineImpl implements VendingMachine {
 	public long selectItemAndGetPrice(Item item) {
 		if (itemInventory.hasItem(item)) {
 			currentItem = item;
+			
 			return currentItem.getPrice();
 		} throw new SoldOutException ("Sold out, Please buy another item");
 	} 
@@ -69,11 +70,13 @@ public class VendingMachineImpl implements VendingMachine {
 		for(Item i: Item.values()){
 			itemInventory.put(i, 5);
 		}
+		itemInventory.put(Item.PEPSI, 5);
 	}
 	
 	
 	private Item collectItem() throws NotSufficientChangeException,
 										NotFullPaidException{
+		System.out.println(itemInventory.getQuantity(Item.SODA));
 		if(isFullPaid()) {
 			if(hasSufficientChange()) {
 				itemInventory.deduct(currentItem);

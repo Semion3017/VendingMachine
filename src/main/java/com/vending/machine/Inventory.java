@@ -1,6 +1,7 @@
 package com.vending.machine;
 
 import java.util.*;
+import com.vending.machine.*;
 
 public class Inventory<T> {
 	
@@ -12,14 +13,12 @@ public class Inventory<T> {
 	}
 
 	public void add(T item) {
-		int count = inventory.get(item);
-		inventory.put(item, count++);
+		inventory.put(item, (inventory.get(item)+1));
 	}
 
 	public void deduct(T item) {
 		if (hasItem(item)) {
-			int count = inventory.get(item);
-			inventory.put(item, count--);
+			inventory.put(item, (inventory.get(item)-1));
 		}
 	}
 
@@ -34,5 +33,7 @@ public class Inventory<T> {
 	public void clear() {
 		inventory.clear();
 	}
+	
+
 
 }
