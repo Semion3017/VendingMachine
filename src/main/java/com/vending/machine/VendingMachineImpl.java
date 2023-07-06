@@ -76,7 +76,7 @@ public class VendingMachineImpl implements VendingMachine {
 	
 	private Item collectItem() throws NotSufficientChangeException,
 										NotFullPaidException{
-		System.out.println(itemInventory.getQuantity(Item.SODA));
+
 		if(isFullPaid()) {
 			if(hasSufficientChange()) {
 				itemInventory.deduct(currentItem);
